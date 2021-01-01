@@ -8,7 +8,7 @@ const { PORT = 5004 } = process.env;
 
 
 app.get('/', function (req, res) {
-  res.send('hello world nodejs')
+  res.send('Location Service')
 })
 
 app.use(bodyParser.urlencoded({ extended: true }));
