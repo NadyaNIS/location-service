@@ -11,7 +11,7 @@ exports.getLocation = (req, res) => {
 
   try {
     const decoded = jwt.verify(token, publicKey);
-    if (decoded.privileges.indexOf('ASSIGN_HERO') >= 0) {
+    if (decoded.privileges.indexOf('ACCESS_STARLINKA_LOCATION') >= 0 || decoded.privileges.indexOf('ADD_TO_CONSTELLATION') >= 0 || decoded.privileges.indexOf('MANEUVER_SATELLITE') >= 0) {
       Satellite.find({
         "settled_location.lat": req.params.lat,
         "settled_location.long": req.params.long
