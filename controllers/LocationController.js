@@ -27,10 +27,18 @@ exports.getLocation = (req, res) => {
         });
       });
     } else {
-      res.status(401).send('Unauthorized.');
+      res.status(403).json({
+        statusCode: 403,
+        statusMessage: 'Access Denied',
+        data: []
+      });
     }
   }
   catch (error) {
-    res.status(401).send('Unauthorized.');
+    res.status(400).json({
+      statusCode: 400,
+      statusMessage: 'Something went wrong',
+      data: error
+    });
   }
 };
